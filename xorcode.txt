@@ -1,0 +1,42 @@
+*************find out that which occur once?xor of all elements.same elements will get cancelled*********************
+def si(a,n):
+    r=a[0]
+    for i in range(1,n):
+        r=r^a[i]
+    return r
+a=[2,3,5,4,5,3,2,88]    
+print(si(a,len(a)))
+*************#swap 2 num using xor*********************************
+a=100
+b=200
+print("a:",a,"b:",b)
+a=a^b
+b=a^b
+a=a^b
+print("a:",a,"b:",b)
+*********************for the given number find out xor of all numbers*************************
+n=12
+xor=0
+for i in range(1,n+1):
+    xor=xor^i
+print(xor)    
+**********************optimising using xor*************************
+n=7
+xor=0
+if n%4==0:
+    print(n)
+elif n%4==1:
+    print(1)
+elif n%4==2:
+    print(n+3)
+elif n%4==3:
+    print(0)
+**************************************#check even or odd using bitwise and********************8
+n=13#check
+if(n&1==0):
+    print("e")
+else:
+    print("o")
+    
+
+    
