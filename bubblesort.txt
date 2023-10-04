@@ -1,0 +1,18 @@
+*****************************bubble sort********************
+n=int(input("enter length of array:"))
+print("enter array elements:")
+li=[]
+for i in range (n):
+    num=int(input())
+    li.append(num)
+for i in range(n-1):
+    swap=False
+    for  j in range(n-i-1):
+        if li[j]>li[j+1]:
+            swap=True
+            temp=li[j]
+            li[j]=li[j+1]
+            li[j+1]=temp
+    if swap==False:
+        break
+print(li)
