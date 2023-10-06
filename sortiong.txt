@@ -1,0 +1,85 @@
+************************************selection sort*******************************************
+class Main{
+    public static void main(String args[]){
+        int i,j,t=0;
+        int [] arr={14,8,2,19,69,1};
+        for(i=0;i<arr.length;i++)
+        {
+            for(j=i+1;j<arr.length;j++)
+            {
+                if(arr[i]>arr[j])
+                {
+                    t=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=t;
+                }
+            }
+        }
+         for(i=0;i<arr.length;i++){
+             System.out.print( arr[i]+" ");
+         }
+        
+    }
+}
+*******************************************************quick sort*********************************
+def quick_sort(li):
+    if len(li)<=1:
+        return li
+    else:
+        pivot=li[0]
+        left_arr=[i for i in li if i<pivot]
+        right_arr=[i for i in li if i>pivot]
+        return quick_sort(left_arr)+[pivot]+quick_sort(right_arr)
+li=list(map(int,input().split(",")))
+print("sorted array:")
+print(quick_sort(li))
+********************************************************merge sort**********************************************
+def merge_sort(li):
+    if len(li)<=1:
+        return li
+    else:
+        mid=len(li)//2
+        left_arr=li[:mid]
+        right_arr=li[mid:]
+        merge_sort(left_arr)
+        merge_sort(right_arr)
+        i=j=k=0
+        while i<len(left_arr) and j<len(right_arr):
+            if left_arr[i]<right_arr[j]:
+                li[k]=left_arr[i]
+                i=i+1
+                k=k+1
+            else:
+                li[k]=right_arr[j]
+                j=j+1
+                k=k+1
+                #to insert leftovers
+        while i<(len(left_arr)):
+            li[k]=left_arr[i]
+            i=i+1
+            k=k+1
+        while j<(len(right_arr)):
+            li[k]=right_arr[j]
+            j=j+1
+            k=k+1
+        return li
+li=list(map(int,input().split(",")))
+print(merge_sort(li))
+        
+ ***************************************inversion*************************************************************
+li=list(map(int,input().split(",")))
+c=0
+for i in range(0,len(li)):
+    for j in range(i+1,len(li)):
+        if li[i]>li[j]:
+            c=c+1
+print(c)       
+                
+            
+            
+    
+
+
+
+
+
