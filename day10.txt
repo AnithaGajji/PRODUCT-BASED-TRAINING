@@ -1,0 +1,134 @@
+*********************for a given number print 1 st 4 square of  odd position values*******************************************************************************
+n=input()
+op=''
+for i in range(1,len(n),2):
+    op+=str(int(n[i])**2)
+print(op[:4])    
+******************************take i/p from user consists of name&code,find max digit from code which is less or equal to length of string put that place char in final string if threr is no any digit found  which satisifies the condition simply put x in that place.********************************************************************** 
+s=input()
+los=s.split(',')
+op=''
+for i in los:
+    nc=i.split(':')
+    name=nc[0]
+    code=nc[1]
+    max=0
+    l=len(name)
+    for i in code:
+        if int(i)>max and int(i)<=len(name):
+            max=int(i)
+    if max==0:
+        op+='X'
+    else:
+        op+=name[max-1]
+print(op) 
+***************************balanced bracket problem************************************************************************************************************
+n=input()
+b=[]
+c=0
+for i in n:
+        if i=='(' or i=='{' or i=='[':
+            b.append(i)
+            c=c+1
+        elif i==')' or i=='}'or i==']': 
+            if i==')' and b[-1]== '(': 
+                b.pop()
+                c=c+1
+            elif i==']' and b[-1] =='[':
+                b.pop()
+                c=c+1
+            elif i=='}' and b[-1]=='{': 
+                b.pop()
+                c=c+1
+if len(b)==0:
+    print(0)
+else:
+    print(c+1)
+********************************reverse the given str and keeping its special character at the same place*********************************************************
+s=input("enter a string:")
+l=[]
+sp,idxsp='',0
+for i in s:
+    if i.isalpha():
+        l.append(i)
+    else:
+        sp+=i
+        idxsp=s.index(i)
+l.reverse()
+l.insert(idxsp,sp)
+print(''.join(l))
+**************************************************two pointers approch*************************************************************************************************
+li=list(map(int,input().split(",")))
+target=int(input())
+li.sort()
+i=0
+j=len(li)-1
+while (li[i]+li[j])!=target:
+    if li[i]+li[j]>target:
+        j=j-1
+    elif li[i]+li[j]<target:
+        i=i+1
+print(li[i],li[j])
+*************************************************floor value through*************************************************************************************************************
+def binary_Search_floor(arr,target):
+    i,j=0,len(arr)-1
+    floor=-1
+    while i<=j:
+        mid=i+(j-i)//2
+        if arr[mid]==target:
+            return arr[mid]
+        elif arr[mid]<target:
+            floor=arr[mid]
+            i=mid+1
+        else:
+            j=mid-1
+    return floor
+arr=list(map(int,input().split(",")))
+target=int(input())
+print(binary_Search_floor(arr,target))
+********************************************************************cell value through binary search******************************************************************************
+def binary_Search_cell(arr,target):
+    i,j=0,len(arr)-1
+    
+    while i<=j:
+        mid=i+(j-i)//2
+        if arr[mid]==target:
+            return arr[mid]
+        elif arr[mid]<target:
+            i=mid+1
+        
+        else:
+            cell=arr[mid]
+            j=mid-1
+    return cell
+arr=list(map(int,input().split(",")))
+target=int(input())
+print(binary_Search_cell(arr,target))
+*******************************************a string of a comma seperated numbers are given such that the numbers 4 &7 are already there  in list.assume 7 always comes after 4 in given string.add all the numbers which do not lie blw 4 &7(excluding 4 &7) in the given input.
+and numbers formed by concatinaating all numbers from 4 to 7.*********************************************************************************************************
+def demo(s):
+    los=s.split(",")
+    idxpof=los.index('4')
+    idxpos=los.index('7')
+    n1,n2=0,''
+    for i in los[:idxpof]+los[idxpos+1:]:
+        n1+=int(i)
+    for i in los[idxpof:idxpos+1]:
+        n2+=i
+    return(n1+int(n2))
+s=input()
+if _name=='main_':
+    print(demo(s))
+********************************************* your are given an array of n integers and another integer k.how many numbers appear in the array at least k times**************************
+
+n,k=map(int,input().split())
+l=[]
+for i in range(n): 
+    l.append(int(input()))
+s,c=set(l),0
+for i in s:
+    if l.count(i)>=k:
+        c+=1
+print(c)        
+***************************************************you have two special dice with 6 faces,each.For each dice you know the numbers written on each face.you roll the dices at the same time, and you add up the numbers showing on the upper faces.what is the most probable sum value you'll get******************************************************************************
+
